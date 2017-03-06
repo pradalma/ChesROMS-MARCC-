@@ -1,0 +1,8 @@
+what is the path to openmpi? for filing in line 108
+(export PATH=$PATH:/usr/local/openmpi/bin:/usr/local/openmpi/lib:./usr/local/openmpi/include
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/openmpi/lib
+
+
+if I declare export F90=mpif90 do I need to declare below export FORTRAN=something as well?
+
+
