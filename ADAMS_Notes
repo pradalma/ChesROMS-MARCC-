@@ -51,8 +51,12 @@ CHESROMS_ROOT ='/home/asiera/install/chesroms-install/ChesROMS1.2/COMF/ohms/CHES
 ChesROMS_ROOT ='/home/asiera/install/chesroms-install/ChesROMS1.2/COMF/ohms/CHESROMS';
 
 ########### maybe supposed to copy this to ~/matlab/ ###############
+##### MAP: what should we do there???
+
 
 # compile oqcs
+### edit the CSDL and Hydro.f files to update path to netcdf.inc such as 
+### include '/cm/shared/apps/netcdf/gcc/64/4.4.1.1/include/netcdf.inc'
 cd oqcs/sorc/library
 source ../../setenvironmentvariables_oqcs_marcc.sh
 make -f Makefilegfortran
@@ -75,6 +79,7 @@ cd COMF/oqcs/testdir
 # edit Test_oqcs.sh line 70
 source ../setenvironmentvariables_oqcs_marcc.sh
 ########### FAILS BECAUSE gobi.co-ops.nos.noaa.gov link is invalid #############
+#### MAP: where does the "gobi" server gets specified? check the wgetlog file in oqcs/testdir directory
 
 ./Test_oqcs.sh
 # edit CBay_River/CBay_river.sh line 22
