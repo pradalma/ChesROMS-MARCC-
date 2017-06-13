@@ -80,6 +80,7 @@ cd COMF/oqcs/testdir
 source ../setenvironmentvariables_oqcs_marcc.sh
 ########### FAILS BECAUSE gobi.co-ops.nos.noaa.gov link is invalid #############
 #### MAP: where does the "gobi" server gets specified? check the wgetlog file in oqcs/testdir directory
+#### MAP: need to update setenvironmentvaribles_oqcs_marcc.sh in testdir/CBay_River
 
 ./Test_oqcs.sh
 # edit CBay_River/CBay_river.sh line 22
