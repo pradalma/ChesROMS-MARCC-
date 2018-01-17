@@ -1,0 +1,128 @@
+With Adam's help, we got this setenv:
+module load slurm/14.11.03
+module load marcc-utils/1.0
+module load nco/4.5.2
+module load perl/5.22.1
+module load binutils/2.25
+module load gcc/4.8.2
+module load ncl/6.4.0
+module load wgrib2/2017.02.15
+module load default-environment
+ml -openmpi/intel openmpi/gcc/1.10.2
+module load shapelib/1.4.0
+module load netcdf/gcc/64/4.4.1.1
+
+#export COMFDIR=/home/asiera/install/chesroms-install/ChesROMS1.2/COMF
+export COMFDIR=/home-3/mpradal1@jhu.edu/work/ChesROMS1.2_AS/COMF
+export CORMSLOG=/dev/null
+export OQCSDIR=$COMFDIR/oqcs
+export OHMSDIR=$COMFDIR/ohms
+
+export OQCS_BIN=$OQCSDIR/binlinux                   #need to change this one accoding to your compile
+                                              #Note, please make sure you do have the directory $OQCS_BIN 
+
+export OQCS_SCPT=$OQCSDIR/scripts
+export OQCS_SORC=$OQCSDIR/sorc
+export OQCS_INFO=$OQCSDIR/info
+export OQCS_DOCS=$OQCSDIR/docs
+export OQCS_TEST=$OQCSDIR/testdir
+
+export OQCSBIN=$OQCS_BIN
+
+#
+#---The following are path setups for softwares that COMF OQCS will need have access to
+#   Please edit accordingly
+#
+
+# points to your installation of NCL
+export NCARG_ROOT=/cm/shared/apps/ncl/6.4.0
+
+# Point to your NetCDF libraries and includes
+export NETCDF_ROOT=/cm/shared/apps/netcdf/gcc/64/4.4.1.1
+# Point to your NCO libaries and includes
+export NCO_ROOT=/cm/shared/apps/nco/4.5.2
+export NCO_BIN=$NCO_ROOT/bin
+
+# Point to your wgrib2 binary directory. wgrib2 is a tool for converting grib2 files into 
+# netcdf files and other functions for interrogating grib2 files. Here we want the 
+# oqcs system know where $WGRIB2_BIN/wgrib2 file is 
+
+export WGRIB2_BIN=/cm/shared/apps/wgrib2/2017.02.15/bin
+
+#
+# force a simple PATH first.  This is important, because this
+# script will be called many times, and we don't want $PATH keep 
+# increasing because of repeating calls
+#
+
+export PATH=/cm/shared/apps/binutils:/cm/shared/apps/binutils/2.25/src/bin:/cm/shared/apps/slurm/current/sbin:/cm/shared/apps/slurm/current/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/ibutils/bin:/sbin:/usr/sbin:/cm/local/apps/environment-modules/3.2.10/bin:/opt/dell/srvadmin/bin:.
+
+#
+# Add the other necessary parts to the PATH
+#
+
+export PATH=$PATH:$NCARG_ROOT/bin                #NCL 
+
+export PATH=$PATH:$OQCSBIN:$OQCS_SCPT            #OQCS of COMF
+
+export PATH=$PATH:$NETCDF_ROOT/bin:$NETCDF_ROOT/include:$NETCDF_ROOT/lib   #NetCDF
+
+export PATH=$PATH:$NCO_ROOT/bin:$NCO_ROOT/include:$NCO_ROOT/lib            #NCO 
+
+export PATH=$PATH:$WGRIB2_BIN                                              #WGRIB2_BIN
+
+#
+#---MPICH  if you use MPICH in your system for parallel computing---
+#   This is not necessary becaue ChesROMS can run on serial computer
+#   If your computer is distributed parallel system,  please install mpich1.2.6 or later version
+#   or OpenMPI 
+#
+
+#  export PATH=$PATH:/usr/local/mpich1.2.6/bin:/usr/local/mpich.1.2.6/lib:/usr/local/mpich1.2.6/include 
+#  export MANPATH=$MANPATH:/usr/local/mpich1.2.6/man
+#  export F90="mpif90"
+#  export F77="mpif77"
+
+#
+#---OpenMPI if you use OpenMPi as your MPI compiler--
+   export PATH=$PATH:/cm/shared/apps/openmpi/gcc/1.10.2/bin:/cm/shared/apps/openmpi/gcc/1.10.2/lib:/cm/shared/apps/openmpi/gcc/1.10.2/include
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/openmpi/gcc/1.10.2/lib
+#---------
+
+#
+#---The following are pointing to setups of your C/C++ and Fortran compilers--
+#   This is specific for intel C and Fortran compiler. If you do use Intel compilers
+#   Please edit accordingly. If you don't use Intel Compilers, please modify according
+#   to your compiler configuration.  We suggest you install intel Fortran and C compiler
+#   version 10.0.023 or later 
+#
+
+# Point to a fortran 90 compiler and setup
+#source /opt/intel/Compiler/fc/11.1.046/bin/ia32/ifortvars_ia32.sh   #comment this  out and substitute 
+                                                 #with your fortran compiler, if no ifort 
+                                                 #in your system
+
+# Point to a intel c compiler and setup
+
+#source /opt/intel/Compiler/cc/11.1.046/bin/ia32/iccvars_ia32.sh     #comment this  out and substitute 
+                                                 #with your C/C++ compiler, if no icc
+                                                 #in your system
+
+# Point to intel debugger and setup
+#source /opt/intel/idb/9.1.040/bin/idbvars.sh     #comment this  out and substitute 
+                                                 #with your debugger, if no idb 
+                                                 #in your system
+
+
+export FORTRAN=gfortran
+#export FORTRAN_FLAGS=-pc80                 #-pc80 is an option for ifort, so if you use gfortran, then don't
+                                           #include this
+
+# end of setenvironmentalvariables_oqcs_template.sh 
+
+
+
+
+
+
+
