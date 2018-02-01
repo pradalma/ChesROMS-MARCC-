@@ -1,0 +1,11 @@
+./compile_chesroms_marcc.sh
+
+Update the makefile file
+
+Update the lnetcdf and lnetcdff
+
+update nc and nf include dir
+
+Check to see if I can add ARPACK and mct, the source code is in HAO/Lib on the linux box
+
+.in files are in user/external
