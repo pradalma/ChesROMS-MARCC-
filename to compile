@@ -9,3 +9,21 @@ update nc and nf include dir
 Check to see if I can add ARPACK and mct, the source code is in HAO/Lib on the linux box
 
 .in files are in user/external
+
+vi ./COMF/ohms/CHESROMS/sorc/ROMS/testing/CBAY/chesroms.in
+Old version of chesroms came with .in files, can we edit them to fit for the new code?
+./COMF/ohms/CHESROMS/data/Stations/stations.in
+./COMF/ohms/CHESROMS/info/grid/floats_150x100.in
+./COMF/ohms/CHESROMS/sorc/ROMS/testing/CBAY/chrmBio.in
+./COMF/ohms/CHESROMS/sorc/ROMS/testing/CBAY/tomsBioTst3.0.in
+./COMF/ohms/CHESROMS/sorc/ROMS/testing/CBAY/chesroms.in
+./COMF/ohms/CHESROMS/sorc/ROMS/testing/CBAY/tomsCycBioTst3.0.in
+./COMF/ohms/CHESROMS/sorc/ROMS/testing/input/chrmBio.in
+./COMF/ohms/CHESROMS/sorc/ROMS/testing/input/stations.in
+./COMF/ohms/CHESROMS/sorc/ROMS/testing/input/chesroms_Nz20_bio.in
+./COMF/ohms/CHESROMS/sorc/ROMS/CBAY/chrmBio.in
+./COMF/ohms/CHESROMS/sorc/ROMS/CBAY/tomsBioTst3.0.in
+./COMF/ohms/CHESROMS/sorc/ROMS/CBAY/chesroms.in
+./COMF/ohms/CHESROMS/work/yearly/1999/ROMS/stations.in
+./COMF/ohms/CHESROMS/work/yearly/1999/ROMS/chesroms_Nz20.in
+./COMF/ohms/CHESROMS/work/yearly/1999/ROMS/chesroms_Nz30.in
