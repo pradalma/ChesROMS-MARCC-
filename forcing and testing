@@ -1,0 +1,29 @@
+in /home-3/mpradal1@jhu.edu/work/compare_forcing/old and jhu directories
+
+The old and new bathymetry are slightly different
+ run year 1999 as an example:
+
+ chesroms_Nz20.in is the control file for 20 level run, you should modify it
+ accordingly for your run, for example, NtileI*NtileJ should equal the np value
+ when you run it in parallel using MPI
+
+ chesroms_Nz30.in is the control file for 30 level run, you should modify it
+ accordingly for your run
+
+
+    1) 20 level run
+
+       > mpiexec -np 8 $CHESROMS_BIN/ChesROMS_3_0_MPI.exe chesroms_Nz20
+
+
+    2) 30 level run
+
+       > mpiexec -np 8 $CHESROMS_BIN/ChesROMS_3_0_MPI.exe chesrms_Nz30.in
+
+    3) results are at ../output
+
+ If you want to run it in not using MPI but using sequential code, please go to ..../ohms/sorc/ROMS/ROMS3.0 and compile
+ to get ChesROMS_3_3_serial.exe  and issue:
+
+       $CHESROMS_BIN/ChesROMS_3_0_serial.exe < chesroms_Nz30.in
+
